@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC
+	"-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+	"http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+	<!-- <session-factory name="foo">
+		<property name="show_sql">true</property>
+		<mapping resource="org/hibernate/test/legacy/Simple.hbm.xml"/>
+		<class-cache
+			class="org.hibernate.test.legacy.Simple"
+			region="Simple"
+			usage="read-write"/>
+	</session-factory> -->
+	<session-factory >
+		<!-- 数据库属性配置 -->
+		<property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
+		<property name="hibernate.connection.url">jdbc:mysql:///hb5</property>		
+		<property name="hibernate.connection.username">root</property>
+		<property name="hibernate.connection.password">628352</property>
+		
+		<!-- 数据库方言 -->
+		<property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
+		
+		<property name="hibernate.hbm2ddl.auto">update</property>
+		
+		 <!-- Echo all executed SQL to stdout -->
+		 <property name="show_sql">true</property>
+		 
+		 <property name="format_sql">true</property>
+		<!-- 映射文件 -->
+		<mapping resource="com/wjcx/hb/bean/Student.hbm.xml"/>
+		<mapping resource="com/wjcx/hb/bean/Animal.hbm.xml"/>
+	</session-factory>
+</hibernate-configuration>

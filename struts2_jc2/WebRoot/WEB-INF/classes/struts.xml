@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
+	"http://struts.apache.org/dtds/struts-2.5.dtd">
+	<struts>
+		<constant name="struts.enable.DynamicMethodInvocation" value="true"/>
+		<package name="demo1" namespace="/jc" extends="struts-default">
+			<global-allowed-methods>regex:.*</global-allowed-methods>
+	 		<action name="register" class="com.wjcx.actions.RegisterAction">
+	 			<result name="success">/WEB-INF/success.jsp</result>
+	 		</action>
+	 		
+	 		<action name="register2" class="com.wjcx.actions.RegisterAction2">
+	 			<result name="success">/WEB-INF/success2.jsp</result>
+	 		</action>
+	 		
+	 		<action name="register3" class="com.wjcx.actions.RegisterAction3">
+	 			<result name="success">/WEB-INF/success3.jsp</result>
+	 		</action>
+	 		
+	 		<action name="register4" class="com.wjcx.actions.RegisterAction4">
+	 			<result name="success">/WEB-INF/success.jsp</result>
+	 		</action>
+		</package>
+	
+	</struts>

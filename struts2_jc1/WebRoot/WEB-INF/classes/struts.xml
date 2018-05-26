@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
+	"http://struts.apache.org/dtds/struts-2.5.dtd">
+	<struts>
+		<constant name="struts.enable.DynamicMethodInvocation" value="true"/>
+		<package name="demo1" namespace="/jc" extends="struts-default">
+			<global-allowed-methods>regex:.*</global-allowed-methods>
+			<action name="some" class="com.wjcx.action.SomeAction" method="doM1" >
+				<!-- <result type="dispatcher">/success.jsp?username=${username}</result> -->
+				<!-- <result type="redirect">/success.jsp?username=${username}</result> -->
+				<!-- 
+				<result type="redirect">
+					<param name="location">/success.jsp</param>
+					<param name="uname">${username}</param>
+					<param name="pwd">${password}</param>
+					<param name="charSet">utf-8</param>
+				</result>
+				 -->
+				 
+				 <result name="success">/success.jsp</result>
+				 
+			<!-- <result type="redirectAction">second</result> -->
+				<!-- 
+				<result type="redirectAction">
+					<param name="actionName">second</param>
+					<param name="uname">${username}</param>
+					<param name="pwd">${password}</param>
+				</result> -->
+			</action>
+			
+			
+			<!-- 
+			<action name="second" class="com.wjcx.action.SecondAction">
+				
+				 <result name="success">/success.jsp</result>
+				
+			</action>
+			 -->
+			
+			 
+		</package>
+	</struts>

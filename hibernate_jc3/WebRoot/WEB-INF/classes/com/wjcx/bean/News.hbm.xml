@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+    <hibernate-mapping package="com.wjcx.bean">
+    	<class name="News" table="t_news">
+    		<id name="id" >
+    			<generator class="native"/>
+    		</id>
+    		<property name="name" />
+    		<property name="content"/>
+    		<!-- 多方关联属性 -->
+    		<many-to-one name="parentNews" class="News" column="pid" cascade="save-update"/>
+    		
+    		<!-- 一方关联属性 -->
+    		<set name="childrenNews" cascade="save-update" inverse="false">
+    			<key column="pid"></key>
+    			<one-to-many class="News"/>
+    		</set>
+    	</class>
+    	
+    </hibernate-mapping>

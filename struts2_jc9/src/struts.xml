@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
+	"http://struts.apache.org/dtds/struts-2.5.dtd">
+	<struts>
+		<constant name="struts.enable.DynamicMethodInvocation" value="true"/>
+		<constant name="struts.multipart.maxSize" value="10485760"></constant>
+		<package name="demo1" namespace="/jc" extends="struts-default">
+		
+	 		<global-allowed-methods>regex:.*</global-allowed-methods>
+	 		<!-- 
+	 		<action name="upload" class="com.wjcx.actions.UploadAction" >
+
+	 			<result >/success.jsp</result>
+	 			<result name="fail">/fail.jsp</result>
+	 			
+	 		</action>
+	 		 -->
+	 		<action name="login" class="com.wjcx.actions.LoginAction" >
+
+	 			<interceptor-ref name="token"></interceptor-ref>
+	 			<interceptor-ref name="defaultStack"></interceptor-ref>
+	 			<result >/success.jsp</result>
+	 			<result name="invalid.token">/message.jsp</result>
+	 		</action>
+	 		
+		</package>
+	
+	</struts>

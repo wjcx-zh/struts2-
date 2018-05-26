@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
+	"http://struts.apache.org/dtds/struts-2.5.dtd">
+	<struts>
+		<constant name="struts.enable.DynamicMethodInvocation" value="true"/>
+		<package name="demo1" namespace="/jc" extends="struts-default">
+			<global-allowed-methods>regex:.*</global-allowed-methods>
+	 	
+	 		
+	 		<action name="login_*" class="com.wjcx.actions.LoginAction" method="{1}">
+	 			<result name="some">/success.jsp</result>
+	 			<result name="other">/success.jsp</result>
+	 			<result name="input">/index.jsp</result>
+	 		</action>
+	 		
+	 		<action name="login1_*" class="com.wjcx.actions.LoginAction1" method="{1}">
+	 			<result name="some">/success.jsp</result>
+	 			<result name="other">/success.jsp</result>
+	 			<result name="input">/index.jsp</result>
+	 		</action>
+	 		
+		</package>
+	
+	</struts>

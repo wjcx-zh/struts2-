@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+    <hibernate-mapping package="com.wjcx.bean">
+    	<class name="Student" table="t_student">
+    		<id name="id" column="sid">
+    			<generator class="native"/>
+    		</id>
+    		<property name="name" column="sname"/>
+    		<property name="age" column="sage"/>
+    		<property name="score" />
+    	</class>
+    	<query name="queryById">from Student where id=:sid</query>
+    </hibernate-mapping>

@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans-4.3.xsd
+        http://www.springframework.org/schema/context 
+        http://www.springframework.org/schema/context/spring-context-4.3.xsd
+        http://www.springframework.org/schema/aop 
+        http://www.springframework.org/schema/aop/spring-aop-4.3.xsd">
+	
+	<!-- 开启注解 -->
+	<context:component-scan base-package="com.wjcx.sp"></context:component-scan>
+	
+	 <bean id="userService" class="com.wjcx.sp.service.impl.UserServiceImpl" init-method="init" destroy-method="destroy">
+       <!--  <property name="accountDao" ref="accountDao"/>
+        <property name="itemDao" ref="itemDao"/>
+         -->
+    </bean>
+    
+    <bean id="student1" class="com.wjcx.sp.bean.Student">
+		<property name="age" value="20"/>
+		<property name="sname" value="Jack"></property>
+		<property name="map" >
+			<map>
+				<entry key="2" value="hkjh"></entry>
+			</map>
+		</property>
+		<property name="courses">
+			<list>
+				<ref bean="course1"/>
+				<ref bean="course2"/>
+			</list>
+		</property>    
+    </bean>
+	
+	<bean id="student2" class="com.wjcx.sp.bean.Student">
+		<property name="age" value="20"/>
+		<property name="sname" value="Jacson"></property>
+		<property name="map" >
+			<map>
+				<entry key="1" value="map1"/>
+				<entry key="2" value="map2"/>
+			</map>
+		</property>
+		<property name="courses" >
+			<list>
+				<ref bean="course1"/>
+				<ref bean="course2"/>
+			</list>
+		</property>    
+    </bean>
+    
+    <bean name="course1" class="com.wjcx.sp.bean.Course">
+    	<property name="cname" value="java"></property>
+    	<property name="info" value="great"></property>
+    </bean>
+    
+     <bean name="course2" class="com.wjcx.sp.bean.Course">
+    	<property name="cname" value="java"></property>
+    	<property name="info" value="great"></property>
+    </bean>
+    
+    <bean id="person" class="com.wjcx.sp.bean.Person">
+    	<property name="perName" value="Ziv"></property>
+    	<property name="age" value="24"></property>
+    	<property name="students" >
+    		<set>
+    			<ref bean="student1"/>
+    			<ref bean="student2"/>
+    		</set>
+    	</property>
+    </bean>
+    <!-- more bean definitions for services go here -->
+	<bean id="teacher" class="com.wjcx.sp.bean.Teacher">
+		<constructor-arg index="0" value="Kazaf"/>
+		<constructor-arg index="1" value="30"/>
+		<constructor-arg index="2">
+			<set>
+				<ref bean="course1"/>
+				<ref bean="course2"/>
+			</set>
+		</constructor-arg>
+	</bean>
+</beans>
